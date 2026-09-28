@@ -1,0 +1,20 @@
+{
+  "bars": [],
+  "chart_title": "Clicks by UTC day",
+  "metrics": {
+    "Active": 1,
+    "Clicks": 0,
+    "Links": 1
+  },
+  "rows": [
+    {
+      "alias": "demo-84168000",
+      "campaign": "Demonstration",
+      "clicks": 0,
+      "created": "2026-09-28T11:11:41.585862+00:00",
+      "enabled": 1,
+      "expires": "2026-10-28T11:11:41.585866+00:00",
+      "url": "https://example.org/docs"
+    }
+  ]
+}

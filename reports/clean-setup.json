@@ -1,0 +1,9 @@
+{
+  "slug": "linkscope",
+  "fresh_venv": "work/clean-envs/linkscope",
+  "fresh_checkout": "work/clean/linkscope",
+  "passed": true,
+  "failure": null,
+  "runtime": "Python 3.12.14",
+  "model_training": null
+}
