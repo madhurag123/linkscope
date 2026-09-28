@@ -28,7 +28,7 @@ python -m pip install -r requirements.txt
 python app.py
 ```
 
-Open **http://127.0.0.1:8080**. Keep the process running. Set `PORT` to use another port (Retention Studio uses `--port`). The Python development servers are intended for local demonstrations.
+Open **http://127.0.0.1:8080**. Keep the process running. Set `PORT` to use another port. The Python development servers are intended for local demonstrations.
 
 ## Demonstration
 
@@ -50,7 +50,7 @@ Stack: Flask · SQLite.
 python -m pytest -q
 ```
 
-See [VERIFICATION.md](VERIFICATION.md) for actual executed checks, setup verification, model/data results and any outstanding environment limitations. A workflow file alone is not evidence that CI passed.
+See [VERIFICATION.md](VERIFICATION.md) for actual executed checks, setup verification, model/data results and any outstanding environment limitations. The [recorded CI runs](reports/ci-verification.json) passed for the linked source revision.
 
 ## Data and attribution
 

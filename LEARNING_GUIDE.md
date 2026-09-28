@@ -23,11 +23,15 @@ Follow the README installation block, then: Create a link to https://example.org
 
 ## Five interview questions
 
-1. **What problem does this project solve, and what is its unit of work?** Explain url shortener with campaign analytics, identify small campaign teams as the audience, and trace one concrete example through the files above. Use the demonstration output rather than hypothetical impact.
-2. **Why did you choose the first design decision?** SQLite transactions keep aliases unique and increment aggregate clicks atomically. Show the corresponding implementation and a test that would fail if that property were removed.
-3. **How do you protect correctness when inputs or execution change?** Store UTC day and referrer host only; visitor identifiers and full referrer URLs are discarded. Explain the relevant invalid-input or edge-case test and distinguish a checked property from an untested assumption.
-4. **How do you make results inspectable and reproducible?** Accept only HTTP(S) destinations and enforce expiration at redirect time. Point to actual outputs and recorded commands. Explain why a successful example is weaker evidence than a tested boundary or independently reconciled total.
-5. **What would you improve before real deployment or real-data use?** Local single-user administration; no accounts, custom domains, abuse detection, bot filtering or unique-visitor estimates. A click count is a request count, not a human count. Choose one limitation, describe the missing evidence, and propose a measurable acceptance check rather than promising production readiness.
+1. **How does a redirect become an analytics event?** The resolver validates the stored link, increments an aggregate row keyed by alias, UTC day and referrer host, then returns the destination. SQLite keeps the read and increment transactional.
+
+2. **Why not store every visitor?** The dashboard only needs aggregate usage. Omitting IP addresses and full referrer URLs reduces retained personal data; it also means unique visitors and individual journeys cannot be measured.
+
+3. **What prevents two links from sharing an alias?** The alias is the database primary key. An integrity error becomes a useful conflict message, so concurrent attempts cannot silently overwrite a destination.
+
+4. **How are unsafe destinations and exports handled?** Destinations must be HTTP(S), have a hostname, and contain no embedded credentials. CSV output prefixes formula-like text so a campaign name cannot become a spreadsheet formula.
+
+5. **What would public deployment require?** Add authenticated management, abuse reporting, rate limits and destination review. The local app is deliberately not presented as an abuse-resistant public shortening service.
 
 ## Independent exercise
 
@@ -41,6 +45,6 @@ The implementation was developed with substantial AI assistance under Abhijith V
 
 Suggested factual bullet after personally validating the demo:
 
-- Implemented and validated url shortener with campaign analytics using Flask · SQLite, with validated links and documented correctness checks and limitations.
+- Built a transactional SQLite URL shortener with expiring aliases, aggregate click analytics and spreadsheet-safe CSV export; verified 15 regression and API checks.
 
 Use [VERIFICATION.md](VERIFICATION.md) to add only measured numbers. Do not claim production traffic, users, savings, upstream acceptance or cloud deployment without corresponding evidence.

@@ -1,0 +1,13 @@
+{
+  "source_commit": "f5969e2bae1624a47ddc95d2b9492cf4e904229e",
+  "runs": [
+    {
+      "id": 36416531874,
+      "name": "Verify",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/abhijith-abhii/linkscope/actions/runs/36416531874"
+    }
+  ],
+  "date": "2026-09-28"
+}

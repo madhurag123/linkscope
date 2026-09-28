@@ -5,7 +5,7 @@ Verification date: 28 September 2026. Tests and examples were executed; they are
 - Project checks: 15 passed.
 - Dependency/setup verification: fresh isolated Python 3.12 environment passed.
 - Main browser/API workflow: verified locally; actual result saved in reports/example-output.json.
-- Publication: pending remote verification.
+- Publication: [public repository](https://github.com/abhijith-abhii/linkscope) verified under **abhijith-abhii**.
 - Actual application screenshot: reports/screenshots/app.png. Browser rendered successfully at 1280px width.
 
 ## Evidence
@@ -13,3 +13,9 @@ Verification date: 28 September 2026. Tests and examples were executed; they are
 - `reports/clean-setup.json`: isolated setup result where applicable.
 - `reports/publication-check.json`: credential-pattern and file audit.
 - `DATA_AND_SOURCES.md`: source and license notes.
+
+## GitHub verification
+
+- [Verify: passed](https://github.com/abhijith-abhii/linkscope/actions/runs/36416531874)
+
+Verified source revision: `f5969e2bae1624a47ddc95d2b9492cf4e904229e`. Subsequent presentation-only changes do not change that implementation evidence.
